@@ -11,6 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::view('/','welcome');
+
+Route::get('/events/{id}', 'EventController@show');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

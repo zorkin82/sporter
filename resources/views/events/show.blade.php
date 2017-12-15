@@ -1,0 +1,12 @@
+@extends('layout')
+@section('content')
+<h1>{{$event->title}}</h1>
+<p>{{$event->formatted_date}}</p>
+<p>{{$event->venue}}</p>
+<p>{{$event->venue_address}}</p>
+<p>{{$event->city}}</p>
+<p>{{$event->state}}</p>
+<p>{{$event->zip}}</p>
+<p>{{$event->organizer}}</p>
+<p>{{$event->host}}</p>
+@endsection
