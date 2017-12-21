@@ -17,7 +17,8 @@ $factory->define(App\Event::class, function (Faker $faker) {
         'description' => $faker->text(),
         'type' => "SingleSportEvent",
         'category' => "DHM",
-        'sport' => "Handball"
+        'sport' => "Handball",
+        'registration_type' => "Self",
     ];
 });
 
@@ -33,4 +34,20 @@ $factory->state(\App\Event::class, 'unpublished', function ($faker)
         return[
             'published_at' => null,
         ];
+});
+
+$factory->state(\App\Event::class, 'selfregister', function ($faker)
+{
+    return[
+        'published_at' => Carbon::parse('-1 week'),
+        'registration_type' => 'Self'
+    ];
+});
+
+$factory->state(\App\Event::class, 'orgregister', function ($faker)
+{
+    return[
+        'published_at' => Carbon::parse('-1 week'),
+        'registration_type' => 'Organisation'
+    ];
 });

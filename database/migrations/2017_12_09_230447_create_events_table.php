@@ -28,6 +28,7 @@ class CreateEventsTable extends Migration
 
             $table->text('description');
             $table->string('type');
+            $table->enum('registration_type', array('Self', 'Organisation'));
             $table->string('category');
             $table->string('sport');
 
