@@ -26,6 +26,11 @@ class CreateEventsTable extends Migration
             $table->string('host');
             $table->datetime('published_at')->nullable();
 
+            $table->text('description');
+            $table->string('type');
+            $table->string('category');
+            $table->string('sport');
+
             $table->timestamps();
         });
     }

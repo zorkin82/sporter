@@ -20,12 +20,13 @@
     <link rel="stylesheet" href="{{asset('vendor/icon-awesome/css/font-awesome.min.css')}}">
     <link rel="stylesheet" href="{{asset('vendor/hamburgers/hamburgers.min.css')}}">
     <link rel="stylesheet" href="{{asset('vendor/hs-megamenu/src/hs.megamenu.css')}}">
-
+    @yield('stylesheet')
     <!-- CSS Unify -->
     <link rel="stylesheet" href="{{asset('css/unify.css')}}">
 
     <!-- CSS Customization -->
     <link rel="stylesheet" href="{{asset('css/custom.css')}}">
+
 </head>
 
 <body>

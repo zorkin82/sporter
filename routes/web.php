@@ -12,8 +12,10 @@
 */
 
 Route::view('/','welcome');
+Route::view('/test','unify');
 
-Route::get('/events/{id}', 'EventController@show');
+Route::get('/events', 'EventController@index')->name('event.list');
+Route::get('/events/{id}', 'EventController@show')->name('event.show');
 
 Auth::routes();
 

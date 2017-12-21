@@ -4,7 +4,7 @@
             <a href="#!" class="nav-link g-px-0">Home <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item g-mx-20--lg">
-            <a href="#!" class="nav-link g-px-0">Features</a>
+            <a href="{{route('event.list')}}" class="nav-link g-px-0">Events</a>
         </li>
         <li class="nav-item g-mx-20--lg">
             <a href="#!" class="nav-link g-px-0">Shortcodes</a>
@@ -48,11 +48,18 @@
             <!-- End Submenu -->
         </li>
 
-        <li class="nav-item g-mx-20--lg">
-            <a href="#!" class="nav-link g-px-0">Demos</a>
-        </li>
-        <li class="nav-item g-ml-20--lg g-mr-0--lg">
-            <a href="#!" class="nav-link g-px-0">What's New</a>
-        </li>
+        @auth
+            <li class="nav-item g-mx-20--lg">
+                <a href="{{ route('home') }}" class="nav-link g-px-0">Profile</a>
+            </li>
+        @else
+            <li class="nav-item g-mx-20--lg">
+                <a href="{{ route('login') }}" class="nav-link g-px-0">Login</a>
+            </li>
+            <li class="nav-item g-ml-20--lg g-mr-0--lg">
+                <a href="{{ route('register') }}" class="nav-link g-px-0">Signup</a>
+            </li>
+        @endauth
+
     </ul>
 </div>

@@ -14,6 +14,10 @@ $factory->define(App\Event::class, function (Faker $faker) {
         'zip'   => '12345',
         'organizer' => "Example Organizer",
         'host' => "Example Host",
+        'description' => $faker->text(),
+        'type' => "SingleSportEvent",
+        'category' => "DHM",
+        'sport' => "Handball"
     ];
 });
 

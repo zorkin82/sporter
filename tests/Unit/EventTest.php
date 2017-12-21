@@ -35,4 +35,5 @@ class EventTest extends TestCase
         $this->assertFalse($publishedEvents->contains($unpublishedEvent));
     }
 
+
 }

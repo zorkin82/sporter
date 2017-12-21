@@ -12,41 +12,25 @@ class EventListingTest extends TestCase
     use RefreshDatabase;
 
     /** @test */
-    function user_can_view_published_event_listing()
+    function user_can_only_view_a_list_of_published_events()
     {
         $this->withoutExceptionHandling();
-        $event = factory(Event::class)->states('published')->create([
-            'date' => Carbon::parse("November 9, 2017"),
-        ]);
 
-        $response = $this->get('/events/'.$event->id);
+        factory(Event::class)->states('published')->create([ "title" => "Published Event 1"]);
+        factory(Event::class)->states('published')->create([ "title" => "Published Event 2"]);
+        factory(Event::class)->states('unpublished')->create([ "title" => "Unpublished Event 1"]);
+
+
+        $response = $this->get('/events');
 
         $response->assertStatus(200);
-        $response->assertSee('Example Event');
-        $response->assertSee('November 9, 2017');
-        $response->assertSee('Example Venue');
-        $response->assertSee('Example Address');
-        $response->assertSee('Example City');
-        $response->assertSee('Example State');
-        $response->assertSee('12345');
-        $response->assertSee('Example Organizer');
-        $response->assertSee('Example Host');
+        $response->assertSee('Published Event 1');
+        $response->assertSee('Published Event 2');
+        $response->assertDontSee('Unpublished Event 1');
 
     }
 
-    /** @test */
-    function user_cannot_see_unpublished_events()
-    {
 
-        $event = factory(Event::class)->states('unpublished')->create();
 
-        $response = $this->get('/events/'.$event->id);
-        $response->assertStatus(404);
-    }
 
-    /** @test */
-    function events_can_be_grouped_by_type()
-    {
-        $this->markTestIncomplete();
-    }
 }
