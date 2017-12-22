@@ -13,16 +13,26 @@
                     <!-- Form -->
                     <form class="g-py-15" method="POST" action="{{ route('register') }}">
                         {{ csrf_field() }}
-                        {{--<div class="row">
-                            <div class="col g-mb-20">
-                                <input class="form-control g-color-black g-bg-white g-bg-white--focus g-brd-gray-light-v3 rounded g-py-15 g-px-15" type="text" placeholder="First name">
+                        <div class="row">
+                            <div class="col g-mb-20"{{ $errors->has('first_name') ? ' u-has-error-v1' : '' }}>
+                                <input class="form-control g-color-black g-bg-white g-bg-white--focus g-brd-gray-light-v3 rounded g-py-15 g-px-15" type="text" placeholder="First name" name="first_name" value="{{ old('first_name') }}" required autofocus>
+                                @if ($errors->has('first_name'))
+                                    <span class="help-block">
+                                        <small class="form-control-feedback">{{ $errors->first('first_name') }}</small>
+                                    </span>
+                                @endif
                             </div>
 
-                            <div class="col g-mb-20">
-                                <input class="form-control g-color-black g-bg-white g-bg-white--focus g-brd-gray-light-v3 rounded g-py-15 g-px-15" type="text" placeholder="Last name">
+                            <div class="col g-mb-20"{{ $errors->has('last_name') ? ' u-has-error-v1' : '' }}>
+                                <input class="form-control g-color-black g-bg-white g-bg-white--focus g-brd-gray-light-v3 rounded g-py-15 g-px-15" type="text" placeholder="Last name" name="last_name" value="{{ old('last_name') }}" required>
+                                @if ($errors->has('last_name'))
+                                    <span class="help-block">
+                                        <small class="form-control-feedback">{{ $errors->first('last_name') }}</small>
+                                    </span>
+                                @endif
                             </div>
-                        </div>  --}}
-                        <div class="row">
+                        </div>
+            {{--            <div class="row">
                             <div class="col g-mb-20{{ $errors->has('name') ? ' u-has-error-v1' : '' }}">
                                 <input class="form-control g-color-black g-bg-white g-bg-white--focus g-brd-gray-light-v3 rounded g-py-15 g-px-15" type="text" placeholder="Name" name="name" value="{{ old('name') }}" required autofocus>
                                 @if ($errors->has('name'))
@@ -31,7 +41,7 @@
                                     </span>
                                 @endif
                             </div>
-                        </div>
+                        </div>--}}
 
                         {{--<div class="form-group g-mb-20">
                             <select class="js-custom-select u-select-v1 g-brd-gray-light-v3 g-color-gray-dark-v5 rounded g-py-12" style="width: 100%;" data-placeholder="Gender" data-open-icon="fa fa-angle-down" data-close-icon="fa fa-angle-up">

@@ -51,3 +51,36 @@ $factory->state(\App\Event::class, 'orgregister', function ($faker)
         'registration_type' => 'Organisation'
     ];
 });
+
+
+/**
+ * User Factories
+ */
+
+
+$factory->define(App\User::class, function (Faker $faker) {
+    static $password;
+
+    return [
+        'first_name' => $faker->firstName,
+        'last_name' => $faker->lastName,
+        'email' => $faker->unique()->safeEmail,
+        'password' => $password ?: $password = bcrypt('secret'),
+        'remember_token' => str_random(10),
+    ];
+});
+
+$factory->state(App\User::class, 'self', function ($faker)
+{
+    return[
+        'permission' => 'Self'
+    ];
+});
+
+
+$factory->state(App\User::class, 'org', function ($faker)
+{
+    return[
+        'permission' => 'Organisation'
+    ];
+});

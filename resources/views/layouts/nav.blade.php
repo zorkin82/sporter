@@ -52,6 +52,35 @@
             <li class="nav-item g-mx-20--lg">
                 <a href="{{ route('home') }}" class="nav-link g-px-0">Profile</a>
             </li>
+
+            <li class="nav-item hs-has-sub-menu g-mx-20--lg">
+                <a href="{{ route('home') }}" class="nav-link g-px-0" id="nav-link-1"
+                   aria-haspopup="true"
+                   aria-expanded="false"
+                   aria-controls="nav-submenu-1"
+                >{{ Auth::user()->name }}</a>
+
+                <!-- Submenu -->
+                <ul class="hs-sub-menu list-unstyled g-text-transform-none g-brd-top g-brd-primary g-brd-top-2 g-min-width-200 g-mt-20 g-mt-10--lg--scrolling" id="nav-submenu-1"
+                    aria-labelledby="nav-link-1">
+                    <li class="dropdown-item">
+                        <a href="{{ route('home') }}" class="nav-link g-px-0">Profile</a>
+                    </li>
+                    <li class="dropdown-item">
+                        <a class="nav-link g-px-0" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                            Logout
+                        </a>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            {{ csrf_field() }}
+                        </form>
+                    </li>
+
+                </ul>
+                <!-- End Submenu -->
+            </li>
+
+
         @else
             <li class="nav-item g-mx-20--lg">
                 <a href="{{ route('login') }}" class="nav-link g-px-0">Login</a>
