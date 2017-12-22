@@ -33,9 +33,20 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    /**
+     * Get the Participants for the event.
+     */
+    public function participations()
+    {
+        return $this->hasMany('App\UserParticipant');
+    }
+
+
     public function getNameAttribute() : string
     {
         return sprintf('%s %s', $this->first_name, $this->last_name);
     }
+
+
 
 }

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Participant;
+use App\UserParticipant;
 use Illuminate\Http\Request;
 
 class ParticipantController extends Controller
@@ -12,9 +12,9 @@ class ParticipantController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
-        //
+
     }
 
     /**
@@ -41,33 +41,23 @@ class ParticipantController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Participant  $participant
+     * @param  \App\UserParticipant  $participant
      * @return \Illuminate\Http\Response
      */
-    public function show(Participant $participant)
+    public function show(UserParticipant $participant)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Participant  $participant
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Participant $participant)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Participant  $participant
+     * @param  \App\UserParticipant  $participant
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Participant $participant)
+    public function update(Request $request, UserParticipant $participant)
     {
         //
     }
@@ -75,10 +65,10 @@ class ParticipantController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Participant  $participant
+     * @param  \App\UserParticipant  $participant
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Participant $participant)
+    public function destroy(UserParticipant $participant)
     {
         //
     }

@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Database\Seeder;
 use Faker\Factory as Faker;
+use Illuminate\Database\Seeder;
 
 class EventTableSeeder extends Seeder
 {
@@ -14,7 +14,7 @@ class EventTableSeeder extends Seeder
     {
         $faker = Faker::create();
         //factory('App\Event',25)->create();
-        for($i=0; $i < 10;$i++) {
+        for ($i = 0; $i < 5; $i++) {
             factory('App\Event')->states('unpublished')->create([
                 'title' => $faker->words($nb = 3, $asText = true),
                 'date' => $faker->dateTimeBetween($startDate = '+1 weeks', $endDate = '+4 weeks'),
@@ -32,7 +32,7 @@ class EventTableSeeder extends Seeder
                 'registration_type' => "Self",
             ]);
         }
-        for($i=0; $i < 50;$i++) {
+        for ($i = 0; $i < 10; $i++) {
             factory('App\Event')->states('published')->create([
                 'title' => $faker->words($nb = 3, $asText = true),
                 'date' => $faker->dateTimeBetween($startDate = '-4 weeks', $endDate = '+3 weeks'),

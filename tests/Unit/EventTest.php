@@ -3,6 +3,7 @@
 namespace Tests\Unit;
 
 use App\Event;
+use App\UserParticipant;
 use Carbon\Carbon;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -34,5 +35,7 @@ class EventTest extends TestCase
         $this->assertTrue($publishedEvents->contains($publishedEventB));
         $this->assertFalse($publishedEvents->contains($unpublishedEvent));
     }
+
+
 
 }

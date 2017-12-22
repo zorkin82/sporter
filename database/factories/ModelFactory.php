@@ -84,3 +84,17 @@ $factory->state(App\User::class, 'org', function ($faker)
         'permission' => 'Organisation'
     ];
 });
+
+
+/**
+ * Participants
+ */
+
+$factory->define(App\UserParticipant::class, function (Faker $faker) {
+
+    return [
+        'first_name' => $faker->firstName,
+        'last_name' => $faker->lastName,
+        'event_id' => $faker->numberBetween(1,50),
+    ];
+});

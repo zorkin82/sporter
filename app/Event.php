@@ -20,10 +20,12 @@ class Event extends Model
     /**
      * Get the Participants for the event.
      */
-    public function Participants()
+    public function participants()
     {
-        return $this->hasMany('App\Participant');
+        return $this->hasMany('App\UserParticipant');
     }
+
+
 
 
     public static function scopePublished(Builder $query)
@@ -37,5 +39,10 @@ class Event extends Model
     public function getFormattedDateAttribute() : string
     {
         return $this->date->format('F j, Y');
+    }
+
+    public function getParticipantsCountAttribute() : int
+    {
+        return $this->participants()->count();
     }
 }

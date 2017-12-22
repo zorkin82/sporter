@@ -31,6 +31,7 @@ class UserLoginTest extends TestCase
         $this->assertTrue(Auth::user()->is($user));
     }
 
+
     /** @test */
     function logging_out_the_current_user()
     {
