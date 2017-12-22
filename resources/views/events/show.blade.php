@@ -9,6 +9,9 @@
 <p><strong>Zip: </strong>{{$event->zip}}</p>
 <p><strong>Organizer: </strong>{{$event->organizer}}</p>
 <p><strong>Host: </strong>{{$event->host}}</p><br>
+
+<h1>{{$event->participants_count}} Teilnehmer</h1>
+
 @if ($can_register)
     <p>Anmelden</p>
 @endif

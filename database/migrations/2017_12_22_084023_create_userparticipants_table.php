@@ -19,8 +19,10 @@ class CreateUserParticipantsTable extends Migration
             $table->unsignedInteger('user_id');
             $table->string('first_name');
             $table->string('last_name');
-
             $table->timestamps();
+
+            $table->index('event_id');
+            $table->index('user_id');
         });
     }
 

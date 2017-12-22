@@ -21,7 +21,7 @@ class EventController extends Controller
     }
 
     public function show($id) {
-        $event = Event::published()->findOrFail($id);
+        $event = Event::published()->withCount('participants')->findOrFail($id);
         $can_register = true;
         if ($event->registration_type == "Organisation" & Auth::check() && Auth::user()->permission != "Organisation") {
             $can_register = false;
